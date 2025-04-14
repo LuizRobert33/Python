@@ -1,18 +1,25 @@
-palavra_secreta = "Futebol"
+palavra_secreta = "futebol"
 letras_acertadas = ""
 
 while True:
-    Letra = input("Digite uma letra: ")
+    letra = input("Digite uma letra: ").lower()
 
-    if len(Letra) > 1:
-        print("ERRO.... digite apenas uma letra: ")
+    if len(letra) > 1:
+        print("ERRO... digite apenas uma letra.")
         continue
 
-    if Letra in palavra_secreta:
-        letras_acertadas += Letra 
+    if letra in palavra_secreta and letra not in letras_acertadas:
+        letras_acertadas += letra
 
-    if Letra in palavra_secreta:
-        if letras_acertadas in letras_acertadas:
-            print(letras_acertadas)
+    palavra_formada = ""
+    for l in palavra_secreta:
+        if l in letras_acertadas:
+            palavra_formada += l
         else:
-            print("*")    
+            palavra_formada += "*"
+
+    print(palavra_formada)
+
+    if palavra_formada == palavra_secreta:
+        print("Parabéns! Você descobriu a palavra secreta.")
+        break

@@ -1,4 +1,4 @@
-# Coletando os 11 números do CPF
+
 N = 1
 lista = []
 
@@ -16,7 +16,7 @@ while N <= 11:
 # Pegando os 9 primeiros dígitos
 novo_numero = lista[:9]
 
-# Cálculo: multiplicar cada dígito por um peso decrescente (de 10 a 2)
+
 NV = 0
 M = 10
 multiplicacao = []

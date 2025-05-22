@@ -58,3 +58,4 @@ except ZeroDivisionError:
     print("Erro: Divisão por zero.")
 finally:
     print("Operação finalizada.")
+```

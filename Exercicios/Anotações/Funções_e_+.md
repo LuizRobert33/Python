@@ -50,4 +50,4 @@ def exibir_info(**info):
         print(f"{chave}: {valor}")
 
 exibir_info(nome="Ana", idade=25)
-
+```

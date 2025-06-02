@@ -64,3 +64,18 @@ print(quadrados)  # Saída: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
 ## Referências
 
 - [Documentação oficial](https://docs.python.org/pt-br/3/tutorial/datastructures.html#dictionaries)
+
+### Exemplo:
+```python
+""" Crie um dicionário chamado pessoa com as seguintes informações:
+
+nome: "Carlos"
+idade: 30
+cidade: "Belo Horizonte"
+Depois, adicione uma nova chave chamada "profissão" com o valor "Médico".
+Por fim, remova a chave "cidade" do dicionário
+"""
+dicionario = {"nome": "Calors", "idade": 30, "cidade": "BH"}
+pessoa["profissão"] = "Médico"
+del pessoa["cidade"]
+print(pessoa)

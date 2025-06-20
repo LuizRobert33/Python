@@ -227,4 +227,146 @@ print(asteriscos('Curso'))    # ***Curso***
 # ✅ Observação:
 # Embora seja possível criar lambdas complexas, quando a lógica fica extensa, 
 # a recomendação do Python é usar def para melhorar a legibilidade.
+
+# Empacotamento e Desempacotamento de Dicionários + *args e **kwargs
+
+## 🧠 O que são *args e **kwargs?
+
+- `*args` permite passar uma **quantidade variável de argumentos posicionais** para uma função.
+- `**kwargs` permite passar uma **quantidade variável de argumentos nomeados** (ou seja, dicionários) para uma função.
+
+---
+
+## 🔸 Sintaxe
+
+```python
+def funcao_exemplo(*args, **kwargs):
+    print("Args:", args)
+    print("Kwargs:", kwargs)
 ```
+
+- `args` é uma tupla contendo os argumentos posicionais.
+- `kwargs` é um dicionário contendo os argumentos nomeados.
+
+---
+
+## 🚀 Empacotamento
+
+- Empacotar significa transformar valores individuais em uma estrutura como tupla (`*args`) ou dicionário (`**kwargs`).
+
+### ➕ Exemplo de empacotamento com `*args`:
+
+```python
+def somar(*valores):
+    return sum(valores)
+
+print(somar(1, 2, 3, 4))  # Saída: 10
+```
+
+### ➕ Exemplo de empacotamento com `**kwargs`:
+
+```python
+def mostrar_info(**dados):
+    for chave, valor in dados.items():
+        print(f"{chave}: {valor}")
+
+mostrar_info(nome="Maria", idade=30, cidade="Fortaleza")
+```
+
+---
+
+## 🎯 Desempacotamento
+
+- Desempacotar significa **expandir uma estrutura** (lista, tupla ou dicionário) em argumentos.
+
+### 🔓 Desempacotamento com `*`:
+
+```python
+def somar(a, b, c):
+    return a + b + c
+
+valores = (1, 2, 3)
+print(somar(*valores))  # Saída: 6
+```
+
+### 🔓 Desempacotamento com `**` (dicionário):
+
+```python
+def apresentar(nome, idade):
+    print(f"Nome: {nome}")
+    print(f"Idade: {idade}")
+
+dados = {"nome": "Carlos", "idade": 25}
+apresentar(**dados)
+```
+
+---
+
+## 🔥 Misturando tudo
+
+```python
+def exemplo(a, b, *args, **kwargs):
+    print(f"a: {a}")
+    print(f"b: {b}")
+    print(f"args: {args}")
+    print(f"kwargs: {kwargs}")
+
+exemplo(10, 20, 30, 40, nome="Ana", cidade="Fortaleza")
+```
+
+### ✅ Saída:
+```
+a: 10
+b: 20
+args: (30, 40)
+kwargs: {'nome': 'Ana', 'cidade': 'Fortaleza'}
+```
+
+---
+
+## 💡 Desempacotamento direto em variáveis (Python moderno)
+
+### 🔹 Listas:
+
+```python
+valores = [1, 2, 3, 4, 5]
+a, b, *resto = valores
+print(a, b, resto)  # Saída: 1 2 [3, 4, 5]
+```
+
+### 🔹 Dicionários:
+
+```python
+dados1 = {'nome': 'Pedro'}
+dados2 = {'idade': 22, 'cidade': 'Recife'}
+dados_completos = {**dados1, **dados2}
+print(dados_completos)
+```
+
+✅ Saída:
+```
+{'nome': 'Pedro', 'idade': 22, 'cidade': 'Recife'}
+```
+
+---
+
+## 📚 Conclusão
+
+- `*args` e `**kwargs` são ferramentas poderosas para criar funções dinâmicas, capazes de receber quantidades variadas de dados.
+- Empacotamento junta dados em tuplas ou dicionários.
+- Desempacotamento faz o processo inverso, espalhando elementos como argumentos.
+- Isso é extremamente útil para funções flexíveis, passagem de dados e junção de estruturas.
+
+---
+
+## 🚀 Resumo Visual
+
+| Sintaxe | O que faz?                     | Tipo        |
+|---------|---------------------------------|-------------|
+| *args   | Empacota/desempacota posição    | Tupla       |
+| **kwargs| Empacota/desempacota nomeados   | Dicionário  |
+| *       | Desempacota listas/tuplas       | -           |
+| **      | Desempacota dicionários         | -           |
+
+---
+--------------------------------------------------------------------
